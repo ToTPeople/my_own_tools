@@ -1,0 +1,96 @@
+$#include "base/MTMVConfig.h"
+$using namespace media;
+
+namespace media {
+
+typedef long long   int64_t;
+    
+class MTMVConfig {
+public:
+    static MTMVConfig* getInstance();
+    /**
+     * releaseConfigResource 释放静态创建的config 空间
+     */
+    static void releaseConfigResource();
+    
+    /**
+     * 底层库版本号，有改动就对该对应段的版本计数 +1
+     */
+    static std::string getMTMVCoreVersion();
+    
+    static void setLogLevel(int level);
+    
+    int getMVSizeWidth() const;
+    int getMVSizeHeight() const;
+    
+    int getMVShortSide() const;
+    
+    const NS_MEDIA::Size& getMVSize() const;
+
+    void setMVSize(int width, int height);
+    
+    const std::string& getMaterialPath() const;
+    
+    void setMaterialPath(const std::string& path);
+    
+    bool isVertical() const;
+    
+    void setUseGlFinish(bool use);
+    
+    bool getUseGlFinish() const;
+    
+    /**
+     *  获取 & 配置软解码器的 crf 值
+     *  取值范围: 18~25, 默认值24
+     */
+    void setVideoCRF(float crf) { mVideoCRF = crf; }
+    float getVideoCRF() { return mVideoCRF; }
+
+    /**
+     * 设置视频保存的时候的码率
+     *
+     * @param bitrate 期望的码率数值
+     **/
+    void setVideoOutputBitrate(int64_t bitrate);
+
+    /**
+     * 获取视频输出的码率数值
+     *
+     * @return 具体码率数值
+     **/
+    int64_t getVideoOutputBitrate() const;
+
+    /**
+     * Set audio stream output bitrate.
+     *
+     * @param bitrate bitrate value, 64000(64kbs) 128000(128kbs)
+     */
+    void setAudioOutputBitrate(int64_t bitrate);
+
+    /**
+     * Get audio stream output bitrate. Default audio stream bitrate value is 128000(128kbs)
+     * <br>
+     * 获取音频流输出的配置码率。
+     * <br>
+     * 默认底层返回的码率是 128kbs 实际数值 128000。
+     *
+     * @return audio output stream bitrate.
+     */
+    int64_t getAudioOutputBitrate();
+
+    /**
+     * Set video output frame rate.
+     *
+     * @param fps video save fps.
+     */
+    void setVideoOutputFrameRate(int fps);
+
+    /**
+     * Get video output frame rate.
+     *
+     * @return video save fps.
+     */
+    int getVideoOutputFrameRate();
+};
+
+}

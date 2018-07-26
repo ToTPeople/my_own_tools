@@ -1,0 +1,32 @@
+$#include "module/graphics/TextureShader.h"
+$using namespace media;
+
+
+namespace media {
+
+/**
+ * just for GraphicsService
+ * draw final texture to final FBO use VBO
+ */
+class TextureShader : public media::Ref
+{
+public:
+    static TextureShader* create();
+    TextureShader();
+    virtual ~TextureShader();
+
+    bool link();
+    
+    // set before setup
+    void setMatrix(const Mat4& m);
+    
+    // set before setup
+    void setUseColor(bool use);
+    
+    // set before setup
+    void setTextColor(const Vec3& color);
+
+    void setup(int texName, float alpha = 1) const;
+};
+
+} // end media namespace

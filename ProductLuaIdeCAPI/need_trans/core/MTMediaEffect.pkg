@@ -1,0 +1,20 @@
+$#include "core/MTMediaEffect.h"
+$using namespace media;
+
+namespace media {
+
+typedef long long   int64_t;
+
+class MTMediaEffect {
+    MTMediaEffect();
+
+    virtual ~MTMediaEffect();
+
+    virtual bool getVideoWithEffect(ReaderBase *reader, VideoFrame *videoFrame, int64_t reqTime) = 0;
+
+    virtual bool getAudioWithEffect(ReaderBase *reader, AudioFrame *audioFrame) = 0;
+
+    virtual void restart() = 0;
+};
+
+}// end media

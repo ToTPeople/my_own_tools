@@ -1,0 +1,51 @@
+$#include "module/graphics/opengl/GLES20FramebufferObjectCache.h"
+$using namespace media;
+
+
+namespace media {
+
+class GLES20FramebufferObjectCache {
+public:
+    
+    /**
+     从cache获取GLES20FramebufferObject对象
+     
+     @param width GLES20FramebufferObject宽
+     @param height GLES20FramebufferObject高
+     @return GLES20FramebufferObject
+     */
+    static GLES20FramebufferObject *fetchFramebufferObjectForSize(int width ,int height);
+    
+    /**
+     从cache获取GLES20FramebufferObject对象
+     
+     @param width GLES20FramebufferObject宽
+     @param height GLES20FramebufferObject高
+     @param exFBO 不返回exFBO指向的FBO指针,重新获取一个
+     @return GLES20FramebufferObject
+     */
+    static GLES20FramebufferObject *fetchFramebufferObjectForSize(int width ,int height ,GLES20FramebufferObject *exFBO);
+    
+    /**
+     从cache获取GLES20FramebufferObject对象指针,保证连续两次获取到的GLES20FramebufferObject不是同一个
+     
+     @param width GLES20FramebufferObject宽
+     @param height GLES20FramebufferObject高
+     @return GLES20FramebufferObject
+     */
+    static GLES20FramebufferObject *fetchFramebufferObjectIncontinuity(int width ,int height);
+    
+    /**
+     将GLES20FramebufferObject对象放到cache
+     
+     @param framebufferObject GLES20FramebufferObject
+     */
+    static void returnFramebufferObjectToCache(GLES20FramebufferObject *framebufferObject);
+    
+    /**
+     清除所有GLES20FramebufferObject cache
+     */
+    static void purgeAllUnassignedFramebufferObjects();
+};
+
+} // end media namespace

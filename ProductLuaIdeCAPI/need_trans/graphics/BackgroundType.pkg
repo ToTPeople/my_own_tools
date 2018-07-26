@@ -1,0 +1,15 @@
+$#include "module/graphics/BackgroundType.h"
+$using namespace media;
+
+
+namespace media {
+/**
+ *  背景类型
+ */
+enum BackgroundType {
+    BACKGROUND_COLOR = 1,
+    BACKGROUND_GAUSS = 2,    /* 背景高斯 */
+    BACKGROUND_CLARITY = 3,  /* 背景透明 */
+};
+
+} // end media namespace

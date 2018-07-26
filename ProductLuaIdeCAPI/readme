@@ -1,0 +1,8 @@
+## 作用
+递归遍历文件夹下所有 "*.h"、 "*.hpp"文件，解析出函数、namespace、class、变量，生成zeroBraneStudio(lua IDE)添加自定义API提示可识别文件格式。
+
+## 默认input
+ProductLuaIdeCAPI路径/need_trans
+
+## 默认输出
+ProductLuaIdeCAPI路径/after_trans/LuaOwnAPI.lua

@@ -1,0 +1,96 @@
+$#include "base/MTRef.h"
+$using namespace media;
+
+namespace media {
+
+class Clonable
+{
+    virtual Clonable *clone() const = 0;
+    virtual ~Clonable() {};
+};
+
+
+class Ref
+{
+
+    enum RefType
+    {
+        normal_type = 0,
+        gl_type = 1,
+    };
+
+    /**
+     * Retains the ownership.
+     *
+     * This increases the Ref's reference count.
+     *
+     * @see release, autorelease
+     * @js NA
+     */
+    void retain();
+
+    /**
+     * Releases the ownership immediately.
+     *
+     * This decrements the Ref's reference count.
+     *
+     * If the reference count reaches 0 after the decrement, this Ref is
+     * destructed.
+     *
+     * @see retain, autorelease
+     */
+    void release();
+
+    /**
+     * Releases the ownership sometime soon automatically.
+     *
+     * This decrements the Ref's reference count at the end of current
+     * autorelease pool block.
+     *
+     * If the reference count reaches 0 after the decrement, this Ref is
+     * destructed.
+     *
+     * @returns The Ref itself.
+     *
+     * @see AutoreleasePool, retain, release
+     *
+     * @warning It is not multi-threads safe
+     */
+    Ref *autorelease();
+
+    /**
+     * Returns the Ref's current reference count.
+     *
+     * @returns The Ref's reference count.
+     * @js NA
+     */
+    unsigned int getReferenceCount() const;
+
+    /**
+     * Set ref type
+     * @param type
+     */
+    void setType(RefType type);
+
+    /**
+     * Get ref tag
+     */
+    const std::string &getTag() const;
+
+    /**
+     * Destructor
+     *
+     * @js NA
+     * @lua NA
+     */
+    virtual ~Ref();
+
+    /// count of references
+    unsigned int m_nReferenceCount;
+    /// type of ref
+    RefType m_refType;
+    /// tag of ref
+    std::string m_sTag;
+};
+
+} // media

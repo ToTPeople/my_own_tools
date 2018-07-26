@@ -1,0 +1,506 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E310EE652109EB2F00D00653 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E310EE612109EB2F00D00653 /* main.cpp */; };
+		E310EE662109EB2F00D00653 /* TransH2LuaApiMode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E310EE632109EB2F00D00653 /* TransH2LuaApiMode.cpp */; };
+		E310EE782109EB9600D00653 /* parser_func_param.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E310EE742109EB9600D00653 /* parser_func_param.cpp */; };
+		E310EE792109EB9600D00653 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E310EE762109EB9600D00653 /* main.cpp */; };
+		E310EE862109EBD100D00653 /* common_func.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E310EE7B2109EBD000D00653 /* common_func.cpp */; };
+		E310EE872109EBD100D00653 /* CParserHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E310EE7E2109EBD000D00653 /* CParserHelper.cpp */; };
+		E310EE882109EBD100D00653 /* product_lua_ide_api.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E310EE802109EBD100D00653 /* product_lua_ide_api.cpp */; };
+		E310EE892109EBD100D00653 /* CDataHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E310EE812109EBD100D00653 /* CDataHelper.cpp */; };
+		E310EE8A2109EBD100D00653 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E310EE822109EBD100D00653 /* main.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		E310EE4C2109EAB100D00653 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		E310EE572109EB1900D00653 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		E310EE692109EB8300D00653 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		E310EE4E2109EAB100D00653 /* TransH2LuaApiMode */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = TransH2LuaApiMode; sourceTree = BUILT_PRODUCTS_DIR; };
+		E310EE592109EB1900D00653 /* update_tolua_file_namespace */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = update_tolua_file_namespace; sourceTree = BUILT_PRODUCTS_DIR; };
+		E310EE602109EB2F00D00653 /* after_trans */ = {isa = PBXFileReference; lastKnownFileType = folder; path = after_trans; sourceTree = "<group>"; };
+		E310EE612109EB2F00D00653 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		E310EE622109EB2F00D00653 /* need_trans */ = {isa = PBXFileReference; lastKnownFileType = folder; path = need_trans; sourceTree = "<group>"; };
+		E310EE632109EB2F00D00653 /* TransH2LuaApiMode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TransH2LuaApiMode.cpp; sourceTree = "<group>"; };
+		E310EE642109EB2F00D00653 /* TransH2LuaApiMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransH2LuaApiMode.h; sourceTree = "<group>"; };
+		E310EE6B2109EB8300D00653 /* ProductLuaIdeCAPI */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ProductLuaIdeCAPI; sourceTree = BUILT_PRODUCTS_DIR; };
+		E310EE722109EB9600D00653 /* after_deal */ = {isa = PBXFileReference; lastKnownFileType = folder; path = after_deal; sourceTree = "<group>"; };
+		E310EE732109EB9600D00653 /* parser_func_param.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = parser_func_param.h; sourceTree = "<group>"; };
+		E310EE742109EB9600D00653 /* parser_func_param.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = parser_func_param.cpp; sourceTree = "<group>"; };
+		E310EE752109EB9600D00653 /* need_deal */ = {isa = PBXFileReference; lastKnownFileType = folder; path = need_deal; sourceTree = "<group>"; };
+		E310EE762109EB9600D00653 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		E310EE772109EB9600D00653 /* parser_pkg_dir.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = parser_pkg_dir.sh; sourceTree = "<group>"; };
+		E310EE7A2109EBD000D00653 /* CDataHelper.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CDataHelper.hpp; sourceTree = "<group>"; };
+		E310EE7B2109EBD000D00653 /* common_func.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = common_func.cpp; sourceTree = "<group>"; };
+		E310EE7C2109EBD000D00653 /* common_func.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = common_func.hpp; sourceTree = "<group>"; };
+		E310EE7D2109EBD000D00653 /* after_trans */ = {isa = PBXFileReference; lastKnownFileType = folder; path = after_trans; sourceTree = "<group>"; };
+		E310EE7E2109EBD000D00653 /* CParserHelper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CParserHelper.cpp; sourceTree = "<group>"; };
+		E310EE7F2109EBD100D00653 /* need_trans */ = {isa = PBXFileReference; lastKnownFileType = folder; path = need_trans; sourceTree = "<group>"; };
+		E310EE802109EBD100D00653 /* product_lua_ide_api.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = product_lua_ide_api.cpp; sourceTree = "<group>"; };
+		E310EE812109EBD100D00653 /* CDataHelper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CDataHelper.cpp; sourceTree = "<group>"; };
+		E310EE822109EBD100D00653 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		E310EE832109EBD100D00653 /* product_lua_ide_api.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = product_lua_ide_api.h; sourceTree = "<group>"; };
+		E310EE842109EBD100D00653 /* common_data.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = common_data.h; sourceTree = "<group>"; };
+		E310EE852109EBD100D00653 /* CParserHelper.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CParserHelper.hpp; sourceTree = "<group>"; };
+		E310EE8B2109EC7C00D00653 /* readme */ = {isa = PBXFileReference; lastKnownFileType = text; path = readme; sourceTree = "<group>"; };
+		E310EE8C2109EDD400D00653 /* readme */ = {isa = PBXFileReference; lastKnownFileType = text; path = readme; sourceTree = "<group>"; };
+		E310EE8D2109EE3800D00653 /* readme */ = {isa = PBXFileReference; lastKnownFileType = text; path = readme; sourceTree = "<group>"; };
+		E310EE8E2109EF5A00D00653 /* parser_pkg.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = parser_pkg.sh; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E310EE4B2109EAB100D00653 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E310EE562109EB1900D00653 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E310EE682109EB8300D00653 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E310EE372109E98800D00653 = {
+			isa = PBXGroup;
+			children = (
+				E310EE4F2109EAB100D00653 /* TransH2LuaApiMode */,
+				E310EE5A2109EB1900D00653 /* update_tolua_file_namespace */,
+				E310EE6C2109EB8300D00653 /* ProductLuaIdeCAPI */,
+				E310EE412109E98800D00653 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E310EE412109E98800D00653 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E310EE4E2109EAB100D00653 /* TransH2LuaApiMode */,
+				E310EE592109EB1900D00653 /* update_tolua_file_namespace */,
+				E310EE6B2109EB8300D00653 /* ProductLuaIdeCAPI */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E310EE4F2109EAB100D00653 /* TransH2LuaApiMode */ = {
+			isa = PBXGroup;
+			children = (
+				E310EE602109EB2F00D00653 /* after_trans */,
+				E310EE612109EB2F00D00653 /* main.cpp */,
+				E310EE622109EB2F00D00653 /* need_trans */,
+				E310EE632109EB2F00D00653 /* TransH2LuaApiMode.cpp */,
+				E310EE642109EB2F00D00653 /* TransH2LuaApiMode.h */,
+				E310EE8D2109EE3800D00653 /* readme */,
+			);
+			path = TransH2LuaApiMode;
+			sourceTree = "<group>";
+		};
+		E310EE5A2109EB1900D00653 /* update_tolua_file_namespace */ = {
+			isa = PBXGroup;
+			children = (
+				E310EE8E2109EF5A00D00653 /* parser_pkg.sh */,
+				E310EE722109EB9600D00653 /* after_deal */,
+				E310EE762109EB9600D00653 /* main.cpp */,
+				E310EE752109EB9600D00653 /* need_deal */,
+				E310EE742109EB9600D00653 /* parser_func_param.cpp */,
+				E310EE732109EB9600D00653 /* parser_func_param.h */,
+				E310EE772109EB9600D00653 /* parser_pkg_dir.sh */,
+				E310EE8C2109EDD400D00653 /* readme */,
+			);
+			path = update_tolua_file_namespace;
+			sourceTree = "<group>";
+		};
+		E310EE6C2109EB8300D00653 /* ProductLuaIdeCAPI */ = {
+			isa = PBXGroup;
+			children = (
+				E310EE7D2109EBD000D00653 /* after_trans */,
+				E310EE812109EBD100D00653 /* CDataHelper.cpp */,
+				E310EE7A2109EBD000D00653 /* CDataHelper.hpp */,
+				E310EE842109EBD100D00653 /* common_data.h */,
+				E310EE7B2109EBD000D00653 /* common_func.cpp */,
+				E310EE7C2109EBD000D00653 /* common_func.hpp */,
+				E310EE7E2109EBD000D00653 /* CParserHelper.cpp */,
+				E310EE852109EBD100D00653 /* CParserHelper.hpp */,
+				E310EE822109EBD100D00653 /* main.cpp */,
+				E310EE7F2109EBD100D00653 /* need_trans */,
+				E310EE802109EBD100D00653 /* product_lua_ide_api.cpp */,
+				E310EE832109EBD100D00653 /* product_lua_ide_api.h */,
+				E310EE8B2109EC7C00D00653 /* readme */,
+			);
+			path = ProductLuaIdeCAPI;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E310EE4D2109EAB100D00653 /* TransH2LuaApiMode */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E310EE522109EAB100D00653 /* Build configuration list for PBXNativeTarget "TransH2LuaApiMode" */;
+			buildPhases = (
+				E310EE4A2109EAB100D00653 /* Sources */,
+				E310EE4B2109EAB100D00653 /* Frameworks */,
+				E310EE4C2109EAB100D00653 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TransH2LuaApiMode;
+			productName = TransH2LuaApiMode;
+			productReference = E310EE4E2109EAB100D00653 /* TransH2LuaApiMode */;
+			productType = "com.apple.product-type.tool";
+		};
+		E310EE582109EB1900D00653 /* update_tolua_file_namespace */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E310EE5D2109EB1900D00653 /* Build configuration list for PBXNativeTarget "update_tolua_file_namespace" */;
+			buildPhases = (
+				E310EE552109EB1900D00653 /* Sources */,
+				E310EE562109EB1900D00653 /* Frameworks */,
+				E310EE572109EB1900D00653 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = update_tolua_file_namespace;
+			productName = update_tolua_file_namespace;
+			productReference = E310EE592109EB1900D00653 /* update_tolua_file_namespace */;
+			productType = "com.apple.product-type.tool";
+		};
+		E310EE6A2109EB8300D00653 /* ProductLuaIdeCAPI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E310EE6F2109EB8300D00653 /* Build configuration list for PBXNativeTarget "ProductLuaIdeCAPI" */;
+			buildPhases = (
+				E310EE672109EB8300D00653 /* Sources */,
+				E310EE682109EB8300D00653 /* Frameworks */,
+				E310EE692109EB8300D00653 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ProductLuaIdeCAPI;
+			productName = ProductLuaIdeCAPI;
+			productReference = E310EE6B2109EB8300D00653 /* ProductLuaIdeCAPI */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E310EE382109E98800D00653 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = lifs;
+				TargetAttributes = {
+					E310EE4D2109EAB100D00653 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					E310EE582109EB1900D00653 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					E310EE6A2109EB8300D00653 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = E310EE3B2109E98800D00653 /* Build configuration list for PBXProject "my_own_tools" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = E310EE372109E98800D00653;
+			productRefGroup = E310EE412109E98800D00653 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E310EE4D2109EAB100D00653 /* TransH2LuaApiMode */,
+				E310EE582109EB1900D00653 /* update_tolua_file_namespace */,
+				E310EE6A2109EB8300D00653 /* ProductLuaIdeCAPI */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E310EE4A2109EAB100D00653 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E310EE652109EB2F00D00653 /* main.cpp in Sources */,
+				E310EE662109EB2F00D00653 /* TransH2LuaApiMode.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E310EE552109EB1900D00653 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E310EE792109EB9600D00653 /* main.cpp in Sources */,
+				E310EE782109EB9600D00653 /* parser_func_param.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E310EE672109EB8300D00653 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E310EE872109EBD100D00653 /* CParserHelper.cpp in Sources */,
+				E310EE892109EBD100D00653 /* CDataHelper.cpp in Sources */,
+				E310EE862109EBD100D00653 /* common_func.cpp in Sources */,
+				E310EE8A2109EBD100D00653 /* main.cpp in Sources */,
+				E310EE882109EBD100D00653 /* product_lua_ide_api.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		E310EE452109E98800D00653 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		E310EE462109E98800D00653 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		E310EE532109EAB100D00653 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 39TX3BPNW3;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		E310EE542109EAB100D00653 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 39TX3BPNW3;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		E310EE5E2109EB1900D00653 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 39TX3BPNW3;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		E310EE5F2109EB1900D00653 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 39TX3BPNW3;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		E310EE702109EB8300D00653 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 39TX3BPNW3;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		E310EE712109EB8300D00653 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 39TX3BPNW3;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E310EE3B2109E98800D00653 /* Build configuration list for PBXProject "my_own_tools" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E310EE452109E98800D00653 /* Debug */,
+				E310EE462109E98800D00653 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E310EE522109EAB100D00653 /* Build configuration list for PBXNativeTarget "TransH2LuaApiMode" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E310EE532109EAB100D00653 /* Debug */,
+				E310EE542109EAB100D00653 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E310EE5D2109EB1900D00653 /* Build configuration list for PBXNativeTarget "update_tolua_file_namespace" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E310EE5E2109EB1900D00653 /* Debug */,
+				E310EE5F2109EB1900D00653 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E310EE6F2109EB8300D00653 /* Build configuration list for PBXNativeTarget "ProductLuaIdeCAPI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E310EE702109EB8300D00653 /* Debug */,
+				E310EE712109EB8300D00653 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E310EE382109E98800D00653 /* Project object */;
+}

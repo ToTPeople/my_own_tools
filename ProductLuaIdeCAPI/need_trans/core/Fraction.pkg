@@ -1,0 +1,35 @@
+$#include "core/Fraction.h"
+$using namespace media;
+
+namespace media {
+
+class Fraction {
+  int num; ///<Numerator for the fraction
+  int den; ///<Denominator for the fraction
+
+  /// Default Constructor
+  Fraction();
+  /// Constructor with numerator and denominator
+  Fraction(int num, int den);
+
+  /// Calculate the greatest common denominator
+  int GreatestCommonDenominator();
+
+  /// Reduce this fraction (i.e. 640/480 = 4/3)
+  void Reduce();
+
+  /// Return this fraction as a float (i.e. 1/2 = 0.5)
+  float ToFloat();
+
+  /// Return this fraction as a double (i.e. 1/2 = 0.5)
+  double ToDouble();
+
+  /// Return a rounded integer of the fraction (for example 30000/1001 returns 30)
+  int ToInt();
+
+  /// Return the reciprocal as a Fraction
+  Fraction Reciprocal();
+};
+
+} // end media
+

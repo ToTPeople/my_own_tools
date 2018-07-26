@@ -1,0 +1,14 @@
+$#include "core/AudioFrame.h"
+$using namespace media;
+
+namespace media {
+
+class AudioFrame :public Frame {
+    AudioFrame();
+    ~AudioFrame();
+    virtual void addAudioFrameData(MMTOOLS::FrameData *audioFrameData);
+    virtual bool assembleFrame();
+};
+
+} // end media
+

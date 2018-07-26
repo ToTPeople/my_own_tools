@@ -1,0 +1,126 @@
+$#include "module/graphics/Image.h"
+$using namespace media;
+
+
+namespace media {
+
+typedef unsigned int uint32_t;
+typedef uint32_t GLenum;
+typedef long ssize_t;
+
+class Image : public Ref
+{
+
+    enum Format {
+
+      FORMAT_L8, //luminance
+      FORMAT_LA8, //luminance-alpha
+      FORMAT_R8,
+      FORMAT_RG8,
+      FORMAT_RGB8,
+      FORMAT_RGBA8,
+      FORMAT_RGBA4444,
+      FORMAT_RGBA5551,
+      FORMAT_RF, //float
+      FORMAT_RGF,
+      FORMAT_RGBF,
+      FORMAT_RGBAF,
+      FORMAT_RH, //half float
+      FORMAT_RGH,
+      FORMAT_RGBH,
+      FORMAT_RGBAH,
+      FORMAT_RGBE9995,
+      FORMAT_DXT1, //s3tc bc1
+      FORMAT_DXT3, //bc2
+      FORMAT_DXT5, //bc3
+      FORMAT_RGTC_R,
+      FORMAT_RGTC_RG,
+      FORMAT_BPTC_RGBA, //btpc bc7
+      FORMAT_BPTC_RGBF, //float bc6h
+      FORMAT_BPTC_RGBFU, //unsigned float bc6hu
+      FORMAT_PVRTC2, //pvrtc
+      FORMAT_PVRTC2A,
+      FORMAT_PVRTC4,
+      FORMAT_PVRTC4A,
+      FORMAT_ETC, //etc1
+      FORMAT_ETC2_R11, //etc2
+      FORMAT_ETC2_R11S, //signed, NOT srgb.
+      FORMAT_ETC2_RG11,
+      FORMAT_ETC2_RG11S,
+      FORMAT_ETC2_RGB8,
+      FORMAT_ETC2_RGBA8,
+      FORMAT_ETC2_RGB8A1,
+      FORMAT_MAX
+    };
+
+    virtual ~Image();
+
+    bool initWithFileHandel(const FileHandle *file);
+    bool initWithFileData(const unsigned char* fileData, ssize_t dataLen);
+    virtual bool initWithImageInfo(int pWidth, int pHeight, GLenum format, bool needMallocPixels = true);
+
+    /**
+     *  set image pixels
+     *
+     *  @param ps   pixels (malloc)
+     *  @param copy true: memcpy; fales: pixels = ps; will call free(pixels)
+     *
+     *  @return true if success
+     */
+    virtual bool setPixels(void *ps, bool copy = true);
+    virtual void* getPixels() const;
+
+    int getWidth() const; ///< Get image width
+    int getHeight() const; ///< Get image height
+
+    int getLineSize() const;
+
+
+    int getComponents() const;
+
+    bool isUpdated() const;
+    void setUpdated(bool update);
+///------------------------------ new api
+
+    /**
+     * Get the current image format.
+     */
+    GLenum getFormat() const;
+
+    Size size() const;
+    
+    /**
+     * Create a new image of a given size and format. Current image will be lost
+     */
+    void create(int p_width, int p_height, bool p_use_mipmaps, Format p_format);
+//    void create(int p_width, int p_height, bool p_use_mipmaps, Format p_format, const PoolVector<uint8_t> &p_data);
+
+    /**
+     * create an empty image
+     */
+    Image();
+
+
+    /**
+     * create an empty image of a specific size and format
+     */
+    Image(int p_width, int p_height, Format p_format, bool p_use_mipmaps = false);
+    /**
+     * import an image of a specific size and format from a pointer
+     */
+//    Image(int p_width, int p_height, bool p_mipmaps, Format p_format, const PoolVector<uint8_t> &p_data);
+
+    /**
+     * Get Image format pixel info in bytes.
+     * Use this method to replace old Image.getComponents()
+     *
+     * @param p_format Image.Format info
+     * @return pixel size in bytes.
+     */
+    static int get_format_pixel_size(Format p_format);
+    static int get_format_pixel_rshift(Format p_format);
+    static int get_format_block_size(Format p_format);
+    static void get_format_min_pixel_size(Format p_format, int &r_w, int &r_h);
+};
+
+} // end media

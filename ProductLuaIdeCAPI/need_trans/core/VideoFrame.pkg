@@ -1,0 +1,14 @@
+$#include "core/VideoFrame.h"
+$using namespace media;
+
+namespace media {
+
+class VideoFrame :public Frame {
+
+    VideoFrame();
+    ~VideoFrame();
+    void updateSize(int width, int height);
+    virtual bool assembleFrame();
+};
+
+} // end media

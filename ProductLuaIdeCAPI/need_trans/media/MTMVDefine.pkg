@@ -1,0 +1,133 @@
+$#include "module/media/MTMVDefine.h"
+
+typedef long long int64_t;
+
+struct AudioParams {
+    AudioParams();
+    ~AudioParams();
+    int freq;
+    int channels;
+    int64_t channel_layout;
+    int fmt;
+    int frame_size;
+    int bytes_per_sec;
+    long mbitRate;
+    /** 每个音频格式为fmt格式的sample字节大小 */
+    int  mBytesOfPerSample;
+};
+
+
+/***
+ *   定义枚举类型
+ */
+enum TrackType {
+    UNKNOW_TRACK,
+    NORMAL_TRACK,           // 图片或者视频 没有背景
+    VIDEO_TRACK,            // 视频
+    MUSIC_TRACK,            // 音乐
+    PICTURE_TRACK,          // 图片
+    SUBTITLE_TRACK,         // 字幕
+    TEXT_TEMPLATE_TRACK,    // 文字模版
+    WATERMARK_TRACK,        // 水印
+    VIDEO_MATERIAL_TRACK,   // 视频素材
+
+    //VFX特效（魔法涂鸦和Lottie动画）
+    VFX_LOTTIE_TRACK = 100,       //Lottie动画
+    VFX_MAGIC_TRACK = 101,        //魔法涂鸦包括（粒子和贴图）
+    VFX_FRAMEMAGIC_TRACK,
+    VFX_PARTICLE_TRACK,
+};
+
+/** 
+ * 标识当前 Group 类型, 不参与类型顺序计算
+ */
+enum GroupType {
+    VIDEO_GROUP,         // 视频
+    PICTURE_GROUP,       // 图片
+    SUBTITLE_GROUP,      // 字幕
+    TEXT_TEMPLATE_GROUP, // 文字模版
+    MATERIAL_GROUP,      // 视频素材
+};
+
+enum TrackZOrder {
+    VIDEO_PICTURE_ZORDER = 0,
+    VIDEO_MATERIAL_ZORDER = 100000,
+    TRANSITION_ZORDER = 200000,
+    WATERMARK_ZORDER = 300000,
+    TEXT_TEMPLATE_ZORDER = 400000,
+    SUBTITLE_ZORDER = 600000,
+
+    //VFX特效（魔法涂鸦和Lottie动画）
+    VFX_LOTTIE_ZORDER = 700000,
+    VFX_FRAMEMAGIC_ZORDER = 800000,
+    VFX_PARTICLE_ZORDER = 1000000,
+};
+
+
+enum media_audio_recorder_status {
+    AUDIO_RECORDER_STATUS_FINISHED   = -2,    // 标识 完成数据保存.
+    AUDIO_RECORDER_STATUS_DO_NOTHING = -1,    // 标识 保存状态正常，但是此次调用未保存到数据.
+    AUDIO_RECORDER_STATUS_NORMAL     = 0,     // 标识 当前保存状态正常 .
+};
+
+enum media_video_recorder_status {
+    VIDEO_RECORDER_STATUS_PREPARING  = -5,  // 准备中
+    VIDEO_RECORDER_STATUS_ERROR  = -4,      // 未知异常
+    VIDEO_RECORDER_STATUS_FETCH_NEXT_FRAME_FAILED  = -3,    // 标识 获取下一帧失败.
+    VIDEO_RECORDER_STATUS_FINISHED   = -2,    // 标识 完成数据保存.
+    VIDEO_RECORDER_STATUS_DO_NOTHING = -1,    // 标识 保存状态正常，但是此次调用未保存到数据.
+    VIDEO_RECORDER_STATUS_NORMAL     = 0,     // 标识 当前保存状态正常 .
+};
+
+enum media_video_refresh_status {
+    VIDEO_REFRESH_STATUS_ABORT               = -4,     // 标识 当前异常退出
+    VIDEO_REFRESH_STATUS_ABNORMAL_STATUS     = -3,     // 标识 当前保存状态异常
+    VIDEO_REFRESH_STATUS_PREPARING           = -2,     // 标识 当前正在准备中
+    VIDEO_REFRESH_STATUS_SEEKING             = -1,     // 标识 当前正在seek操作中
+    VIDEO_REFRESH_STATUS_NORMAL              = 0,      // 标识 当前正常刷新
+};
+
+enum SEEK_MODE {
+    SEEK_MODE_NORMAL = 0,   // Mode for seek MediaCodec to pos that want to,
+    SEEK_MODE_SMOOTH,       // Mode for seek MediaCodec frame by frame, do final seek to pos when seeking ended.
+};
+
+enum SEEK_TYPE {
+    SEEK_TYPE_SYNC   = 0,   // 同步模式, seek in sync mode, wait for seek work all done.
+    SEEK_TYPE_ASYNC,        // 异步模式, seek in async mode,
+};
+
+/**
+ *  内部帧结构： MTFrame
+ *  描述：描述 IOS 硬件解码得到的帧信息数据，到 ffmpeg 帧数据的转化，
+ *       目标为了内部代码同外部的解耦合，该结构只是纯粹作为特定解码模块
+ *       到内部ffmpeg 部分的过渡对象使用。
+ *  注意事项： 内部对该对象进行复杂操作时，需要注意成员 opaque 的生命周期;
+ */
+struct MTFrame {
+    MTFrame();
+    ~MTFrame();
+    /**
+     * format of the frame, -1 if unknown or unset
+     * Values correspond to enum AVPixelFormat for video frames,
+     * enum AVSampleFormat for audio)
+     */
+    int format;
+    
+    /**
+     * Presentation timestamp in time_base units (time when frame should be shown to user).
+     */
+    int64_t pts;
+    
+    /**
+     * for some private data of the user
+     */
+    //void *opaque;
+
+    /**
+     * width and height of the video frame
+     */
+    int width, height;
+};
+
+

@@ -1,0 +1,8 @@
+## 作用
+递归解析文件夹下 tolua转换后的"*.c"、"*.cpp" 文件中lua提供的指定函数的指定参数，参数类加入指定namespace。
+
+## 使用
+1、编译出　可执行文件
+2、在命令行中使用脚本执行如下命令：
+sh ./parser_pkg_dir.sh ./need_deal/ ./after_deal/ ./update_tolua_file_namespace
+

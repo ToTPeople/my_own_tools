@@ -1,0 +1,8 @@
+## 作用
+解析文件夹（不会递归子文件夹）下 "*.h"、"*.hpp" 文件中函数，生成lua语法function函数定义　及　参数、返回值注释
+
+## 默认input
+TransH2LuaApiMode路径/need_trans/
+
+## 默认输出
+TransH2LuaApiMode路径/after_trans/

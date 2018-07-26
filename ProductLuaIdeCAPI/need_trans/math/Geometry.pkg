@@ -1,0 +1,113 @@
+$#include "math/Geometry.h"
+$using namespace media;
+
+namespace media {
+
+class Size
+{
+
+    float width;
+    float height;
+
+    operator Vec2() const
+    {
+        return Vec2(width, height);
+    }
+    
+    Size();
+    
+    Size(float width, float height);
+    
+    Size(const Size& other);
+
+    explicit Size(const Vec2& point);
+
+    Size operator+(const Size& right) const;
+
+    Size operator-(const Size& right) const;
+
+    Size operator*(float a) const;
+
+    Size operator/(float a) const;
+
+    void setSize(float width, float height);
+
+    bool equals(const Size& target) const;
+    bool operator==(const Size &other);
+    bool operator!=(const Size &other);
+
+    static const Size ZERO;
+};
+
+class Rect
+{
+
+    Vec2 origin;
+    Size  size;
+    
+    /**
+     * @js NA
+     */
+    Rect();
+    /**
+     * @js NA
+     */
+    Rect(float x, float y, float width, float height);
+    /**
+     * @js NA
+     * @lua NA
+     */
+    Rect(const Rect& other);
+    /**
+     * @js NA
+     * @lua NA
+     */
+    void setRect(float x, float y, float width, float height);
+    /**
+     * @js NA
+     */
+    float getMinX() const; /// return the leftmost x-value of current rect
+    /**
+     * @js NA
+     */
+    float getMidX() const; /// return the midpoint x-value of current rect
+    /**
+     * @js NA
+     */
+    float getMaxX() const; /// return the rightmost x-value of current rect
+    /**
+     * @js NA
+     */
+    float getMinY() const; /// return the bottommost y-value of current rect
+    /**
+     * @js NA
+     */
+    float getMidY() const; /// return the midpoint y-value of current rect
+    /**
+     * @js NA
+     */
+    float getMaxY() const; /// return the topmost y-value of current rect
+    /**
+     * @js NA
+     */
+    bool equals(const Rect& rect) const;
+    /**
+     * @js NA
+     */
+    bool containsPoint(const Vec2& point) const;
+    /**
+     * @js NA
+     */
+    bool intersectsRect(const Rect& rect) const;
+    /**
+     * @js NA
+     * @lua NA
+     */
+    Rect unionWithRect(const Rect & rect) const;
+    
+    void merge(const Rect& rect);
+    
+    static const Rect ZERO;
+};
+
+} // end media

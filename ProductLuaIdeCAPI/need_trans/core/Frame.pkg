@@ -1,0 +1,166 @@
+$#include "core/Frame.h"
+$using namespace media;
+
+enum ChannelLayout
+{
+  LAYOUT_MONO = AV_CH_LAYOUT_MONO,
+  LAYOUT_STEREO = AV_CH_LAYOUT_STEREO,
+  LAYOUT_2POINT1 = AV_CH_LAYOUT_2POINT1,
+  LAYOUT_2_1 = AV_CH_LAYOUT_2_1,
+  LAYOUT_SURROUND = AV_CH_LAYOUT_SURROUND,
+  LAYOUT_3POINT1 = AV_CH_LAYOUT_3POINT1,
+  LAYOUT_4POINT0 = AV_CH_LAYOUT_4POINT0,
+  LAYOUT_4POINT1 = AV_CH_LAYOUT_4POINT1,
+  LAYOUT_2_2 = AV_CH_LAYOUT_2_2,
+  LAYOUT_QUAD = AV_CH_LAYOUT_QUAD,
+  LAYOUT_5POINT0 = AV_CH_LAYOUT_5POINT0,
+  LAYOUT_5POINT1 = AV_CH_LAYOUT_5POINT1,
+  LAYOUT_5POINT0_BACK = AV_CH_LAYOUT_5POINT0_BACK,
+  LAYOUT_5POINT1_BACK = AV_CH_LAYOUT_5POINT1_BACK,
+  LAYOUT_6POINT0 = AV_CH_LAYOUT_6POINT0,
+  LAYOUT_6POINT0_FRONT = AV_CH_LAYOUT_6POINT0_FRONT,
+  LAYOUT_HEXAGONAL = AV_CH_LAYOUT_HEXAGONAL,
+  LAYOUT_6POINT1 = AV_CH_LAYOUT_6POINT1,
+  LAYOUT_6POINT1_BACK = AV_CH_LAYOUT_6POINT1_BACK,
+  LAYOUT_6POINT1_FRONT = AV_CH_LAYOUT_6POINT1_FRONT,
+  LAYOUT_7POINT0 = AV_CH_LAYOUT_7POINT0,
+  LAYOUT_7POINT0_FRONT = AV_CH_LAYOUT_7POINT0_FRONT,
+  LAYOUT_7POINT1 = AV_CH_LAYOUT_7POINT1,
+  LAYOUT_7POINT1_WIDE = AV_CH_LAYOUT_7POINT1_WIDE,
+  LAYOUT_7POINT1_WIDE_BACK = AV_CH_LAYOUT_7POINT1_WIDE_BACK,
+  LAYOUT_OCTAGONAL = AV_CH_LAYOUT_OCTAGONAL,
+  LAYOUT_STEREO_DOWNMIX = AV_CH_LAYOUT_STEREO_DOWNMIX
+};
+
+namespace media {
+
+typedef long long   int64_t;
+typedef unsigned char uint8_t;
+typedef unsigned int size_t;
+
+class Frame : public Ref
+{
+
+  int64_t number;	 ///< This is the frame number (starting at 1)
+  bool has_audio_data; ///< This frame has been loaded with audio data
+  bool has_image_data; ///< This frame has been loaded with pixel data
+
+  MMTOOLS::FrameData *m_pFrameData;
+
+
+  /// Constructor - blank frame (300x200 blank image, 48kHz audio silence)
+  Frame();
+
+  /// Constructor - image only (48kHz audio silence)
+  Frame(int64_t number, int width, int height, std::string color);
+
+  /// Constructor - audio only (300x200 blank image)
+  Frame(int64_t number, int samples, int channels);
+
+  /// Constructor - image & audio
+  Frame(int64_t number, int width, int height, std::string color, int samples, int channels);
+
+  /// Copy constructor
+  Frame ( const Frame &other );
+
+  /// Assignment operator
+  Frame& operator= (const Frame& other);
+
+  /// Destructor
+  ~Frame();
+
+  /// Add (or replace) pixel data to the frame (based on a solid color)
+  void AddColor(int new_width, int new_height, std::string new_color);
+
+  /// Add (or replace) pixel data to the frame
+  void AddImage(int new_width, int new_height, int bytes_per_pixel, Image::Format type, const unsigned char *pixels_);
+
+  /// Add (or replace) pixel data to the frame
+  void AddImage(Image* new_image);
+
+  /// Add (or replace) pixel data to the frame (for only the odd or even lines)
+  void AddImage(Image* new_image, bool only_odd_lines);
+
+  virtual void addAudioFrameData(MMTOOLS::FrameData *audioFrameData){};
+
+  virtual bool assembleFrame(){ return false; };
+
+  bool write(uint8_t *data, size_t dataSize);
+
+  uint8_t *read(size_t &size);
+
+  /// Channel Layout of audio samples. A frame needs to keep track of this, since Writers do not always
+  /// know the original channel layout of a frame's audio samples (i.e. mono, stereo, 5 point surround, etc...)
+  ChannelLayout ChannelsLayout();
+
+  // Set the channel layout of audio samples (i.e. mono, stereo, 5 point surround, etc...)
+  void ChannelsLayout(ChannelLayout new_channel_layout) { channel_layout = new_channel_layout; };
+
+  /// Clean up buffer after QImage is deleted
+  static void cleanUpBuffer(void *info);
+
+  /// Clear the waveform image (and deallocate it's memory)
+  void ClearWaveform();
+
+  /// Copy data and pointers from another Frame instance
+  void DeepCopy(const Frame& other);
+
+  /// Display the frame image to the screen (primarily used for debugging reasons)
+  void Display();
+
+  /// Display the wave form
+  void DisplayWaveform();
+
+  /// Get pointer to Qt QImage image object
+  Image *getImage();
+
+  /// Set Pixel Aspect Ratio
+  Fraction GetPixelRatio() { return pixel_ratio; };
+
+  /// Get pixel data (as packets)
+  const unsigned char* GetPixels();
+
+  /// Get pixel data (for only a single scan-line)
+  const unsigned char* GetPixels(int row);
+
+  /// Get height of image
+  int GetHeight();
+
+  /// Calculate the # of samples per video frame (for the current frame number)
+  int GetSamplesPerFrame(Fraction fps, int sample_rate, int channels);
+
+  /// Calculate the # of samples per video frame (for a specific frame number and frame rate)
+  static int GetSamplesPerFrame(int64_t frame_number, Fraction fps, int sample_rate, int channels);
+
+  /// Get an audio waveform image
+  Image *GetWaveform(int width, int height, int Red, int Green, int Blue, int Alpha);
+
+  /// Get an audio waveform image pixels
+  const unsigned char* GetWaveformPixels(int width, int height, int Red, int Green, int Blue, int Alpha);
+
+  /// Get height of image
+  int GetWidth();
+
+  /// Get the original sample rate of this frame's audio data
+  int SampleRate();
+
+  /// Set the original sample rate of this frame's audio data
+  void SampleRate(int orig_sample_rate) { sample_rate = orig_sample_rate; };
+
+  /// Save the frame image to the specified path.  The image format can be BMP, JPG, JPEG, PNG, PPM, XBM, XPM
+    void Save(std::string path, float scale, std::string format="PNG", int quality=100);
+
+  /// Set frame number
+  void SetFrameNumber(int64_t number);
+
+  /// Set Pixel Aspect Ratio
+  void SetPixelRatio(int num, int den);
+
+  /// Thumbnail the frame image with tons of options to the specified path.  The image format is determined from the extension (i.e. image.PNG, image.JPEG).
+  /// This method allows for masks, overlays, background color, and much more accurate resizing (including padding and centering)
+    void Thumbnail(std::string path, int new_width, int new_height, std::string mask_path, std::string overlay_path,
+                 std::string background_color, bool ignore_aspect, std::string format="png", int quality=100, float rotate=0.0);
+
+};
+
+} // end media
